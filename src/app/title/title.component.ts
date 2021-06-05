@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 
 @Component({
     selector: 'app-title',
@@ -12,10 +12,14 @@ export class TitleComponent implements OnInit {
 
     public moreInformation : boolean= false ;
 
-    public isAvaileble : boolean= true ;
+    public isAvaileble : boolean= false ;
 
     public category : string = "web";
     public topics : string[] = ['Fundamentos del framework',  'ngFor', 'ngIf'] ;
+    public launchDate : Date = new Date(2018,11,25)
+    public price : number = 25
+
+    @Input() subscribed : boolean = false;
 
     constructor(){}
 

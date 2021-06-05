@@ -4,5 +4,6 @@
     <p class ="name">{{name}}</p>
     
     <input type="text" (change)="changingUsername($event)" value="{{username}}">
-    <input type="text" (change)="changingName($event)" value="{{name}}">
+    <!-- <input type="text" (change)="changingName($event)" value="{{name}}"> -->
+    <input type="text" [(ngModel)]="name">
 </div>

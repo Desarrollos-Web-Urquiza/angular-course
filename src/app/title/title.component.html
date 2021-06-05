@@ -1,6 +1,6 @@
 <h1>Curso Angular</h1>
 
-<p *ngIf="!isAvaileble; else available">Lazamiento: 25 dic 2018</p>
+<p *ngIf="!isAvaileble; else available">Lazamiento: {{launchDate | date: "dd MMM y h:mm:ss":"-0000" | uppercase}}</p>
 
 <ng-template #available>
     <span class="hightlight">Curso disponible</span>
@@ -26,5 +26,5 @@
     <li *ngFor="let topic of topics; ">{{topic}}</li>
 </ul>
 <div>
-    <button [disabled]="isAvaileble" [ngClass]="{active: isAvaileble, shadow: !isAvaileble}" type="button" name="button">Inscribirse</button>
+    <button [disabled]="!isAvaileble || !subscribed" [ngClass]="{active: isAvaileble && subscribed, shadow: !isAvaileble}" type="button" name="button">Inscribirse {{price | currency: 'ARS'}}</button>
 </div>
