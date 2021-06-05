@@ -1,0 +1,8 @@
+<div class="container">
+    <img [src]="avatar" alt="Avatar del usuario">
+    <p class ="username">{{username}}</p>
+    <p class ="name">{{name}}</p>
+    
+    <input type="text" (change)="changingUsername($event)" value="{{username}}">
+    <input type="text" (change)="changingName($event)" value="{{name}}">
+</div>
