@@ -13,11 +13,15 @@
     <span  *ngSwitchDefault>No especificado</span>
 </div>
 
-<h3 >Tutor: {{ name }}</h3>
+<!-- CUSTOM DIRECTIVE -->
+<h3 [redBorder]="'blue'" [redClass]="'pink-border'">Tutor: {{ name }}</h3>
 <div class="">
     <!-- <a>Más información<i class="fa " [ngclass]="{'fa-chevron-down': !moreInformation, 'fa-chevron-up': moreInformation}"></i></a> -->
     <a (click)="toggleMoreInformation()">Más información<i class="fa " [class.fa-chevron-down]="!moreInformation"  [class.fa-chevron-up]="moreInformation" ></i></a>
     <p *ngIf="moreInformation" >
+        <!-- CUSTOM PIPE -->
+        <span>{{seconds | secondsToTImeFormat : false}}</span>
+        <br>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
         Quisquam, dolor inventore! Minima ut odio nulla repudiandae eaque inventore delectus nisi possimus magnam!
     </p>

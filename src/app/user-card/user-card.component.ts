@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
+import { ArticlesService } from '../services/articles.services';
+
 @Component({
   selector: 'app-user-card',
   templateUrl: './user-card.component.html',
@@ -12,15 +14,19 @@ export class UserCardComponent implements OnInit {
 
   @Output() suscribed = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(  private articlesS : ArticlesService ) { 
+
+  }
 
   ngOnInit(): void {
     this.name = 'Uriel';
     this.username = 'Uriel_hedz';
     this.avatar = 'https://media-exp3.licdn.com/dms/image/C5603AQHka1D56sLnxw/profile-displayphoto-shrink_100_100/0/1600453040985?e=1628121600&v=beta&t=mT9x_BxWNQ560GFEAFvy0VtgJYha-_v7JbgX5bbOUDQ';
 
-    setTimeout(()=> this.suscribed.emit(true),3000)
+    setTimeout(()=> this.suscribed.emit(true),3000) 
     setTimeout(()=> this.name = 'Cody',3000)
+
+    this.articlesS.articlesCount =   20
   }
 
   changingUsername(event : any){

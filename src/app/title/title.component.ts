@@ -18,6 +18,7 @@ export class TitleComponent implements OnInit {
     public topics : string[] = ['Fundamentos del framework',  'ngFor', 'ngIf'] ;
     public launchDate : Date = new Date(2018,11,25)
     public price : number = 25
+    public seconds : number = 3660
 
     @Input() subscribed : boolean = false;
 
