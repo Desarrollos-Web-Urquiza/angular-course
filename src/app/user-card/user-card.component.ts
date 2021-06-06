@@ -26,7 +26,8 @@ export class UserCardComponent implements OnInit {
     setTimeout(()=> this.suscribed.emit(true),3000) 
     setTimeout(()=> this.name = 'Cody',3000)
 
-    this.articlesS.articlesCount =   20
+    /*this.articlesS.reposCount =   20*/
+    
   }
 
   changingUsername(event : any){

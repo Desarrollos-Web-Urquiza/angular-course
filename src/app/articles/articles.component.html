@@ -1,5 +1,11 @@
 <h3>
-    Repositorios: {{articlesS.articlesCount}}
+    Cantidad total de repositorios: {{articlesS.reposCount}}<br>
 </h3>
+<h3>Nombres:</h3> 
+<ul>
+    <li *ngFor="let repo of articlesS.reposObserver | async ">  {{repo.name}}  </li>
+</ul>
+
+
 
 
