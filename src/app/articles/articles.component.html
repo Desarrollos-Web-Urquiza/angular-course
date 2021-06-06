@@ -1,6 +1,11 @@
+<h2>Mis repositorios</h2>
+<!--<p>{{(articlesS.reposObserver | async  )?.length  }}</p>-->
 <h3>
     Cantidad total de repositorios: {{articlesS.reposCount}}<br>
 </h3>
+<div>
+    <p style="font-weight: bold;" >{{articlesS.mainRepo?.name}}</p><!-- The "?" validate if exists -->
+</div>
 <h3>Nombres:</h3> 
 <ul>
     <li *ngFor="let repo of articlesS.reposObserver | async ">  {{repo.name}}  </li>

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import {map} from 'rxjs/operators';
+import {share} from 'rxjs/operators';
 import { ChildActivationStart } from '@angular/router';
 
 
@@ -16,10 +17,14 @@ class Repo {
 @Injectable()
 export class ArticlesService {
     public reposCount : number = 0
-
-    public reposObserver : any = [   ]
+    
+    public reposObserver : any = []
+    
+    public mainRepo : any = [] 
+    
     constructor(private http : HttpClient ){
         this.countRepos()
+        this.getMainRepo()
 
     }
     getAll() {
@@ -28,10 +33,21 @@ export class ArticlesService {
             return data.map((r: any ) => new Repo(r.id, r.name))
         }))
     }
+    
     countRepos(){
         fetch('https://api.github.com/users/Desarrollos-Web-Urquiza/repos')
         .then(response => response.json())
         .then(repos => this.reposCount = repos.length )
+    }
+
+    getMainRepo(){
+        fetch('https://api.github.com/users/Desarrollos-Web-Urquiza/repos')
+        .then(response => response.json())
+        .then(repos => {
+            const repoJSON = repos[repos.length - 1]
+            this.mainRepo = new Repo (repoJSON.id, repoJSON.name)
+            console.log(this.mainRepo)
+        })
     }
 
     /*buildObservable()  : Observable<any> { 
