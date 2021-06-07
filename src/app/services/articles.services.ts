@@ -18,14 +18,13 @@ class Repo {
 export class ArticlesService {
     public reposCount : number = 0
     
-    public reposObserver : any = []
+    public reposObserver : Observable<any> | undefined 
     
     public mainRepo : any = [] 
     
     constructor(private http : HttpClient ){
         this.countRepos()
         this.getMainRepo()
-
     }
     getAll() {
         this.reposObserver =  this.http.get('https://api.github.com/users/Desarrollos-Web-Urquiza/repos')

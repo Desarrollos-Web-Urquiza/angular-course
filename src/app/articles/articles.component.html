@@ -7,7 +7,7 @@
     <p style="font-weight: bold;" >{{articlesS.mainRepo?.name}}</p><!-- The "?" validate if exists -->
 </div>
 <h3>Nombres:</h3> 
-<ul>
+<ul [@staggeredShowUp]="(articlesS.reposObserver | async)?.length > 0" >
     <li *ngFor="let repo of articlesS.reposObserver | async ">  {{repo.name}}  </li>
 </ul>
 

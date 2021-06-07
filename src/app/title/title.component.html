@@ -15,10 +15,10 @@
 
 <!-- CUSTOM DIRECTIVE -->
 <h3 [redBorder]="'blue'" [redClass]="'pink-border'">Tutor: {{ name }}</h3>
-<div class="">
+<div [@showUp]="moreInformation" style="overflow: hidden;">
     <!-- <a>Más información<i class="fa " [ngclass]="{'fa-chevron-down': !moreInformation, 'fa-chevron-up': moreInformation}"></i></a> -->
     <a (click)="toggleMoreInformation()">Más información<i class="fa " [class.fa-chevron-down]="!moreInformation"  [class.fa-chevron-up]="moreInformation" ></i></a>
-    <p *ngIf="moreInformation" >
+    <p>
         <!-- CUSTOM PIPE -->
         <span>{{seconds | secondsToTImeFormat : false}}</span>
         <br>
